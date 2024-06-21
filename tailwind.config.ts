@@ -1,20 +1,167 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
-const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
+const config = {
+    darkMode: ['class'],
+    content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+    prefix: '',
+    theme: {
+        container: {
+            center: true,
+            padding: '2rem',
+            screens: {
+                '2xl': '1400px',
+            },
+        },
+        extend: {
+            fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+            },
+            fontSize: {
+                'display-1': ['72px', '120%'],
+                'display-2': ['60px', '120%'],
+                'heading-1': ['48px', '120%'],
+                'heading-2': ['40px', '120%'],
+                'heading-3': ['32px', '120%'],
+                'heading-4': ['28px', '120%'],
+                'heading-5': ['24px', '120%'],
+                'heading-6': ['20px', '120%'],
+                'paragraph-l': ['18px', '120%'],
+                'paragraph-m': ['16px', '120%'],
+                'paragraph-s': ['14px', '120%'],
+                'paragraph-xs': ['12px', '120%'],
+                footer: ['10px', '120%'],
+            },
+            fontWeight: {
+                regular: '400',
+                medium: '500',
+                'semi-bold': '600',
+                bold: '700',
+            },
+            colors: {
+                border: 'hsl(var(--border))',
+                input: 'hsl(var(--input))',
+                ring: 'hsl(var(--ring))',
+                background: 'hsl(var(--background))',
+                foreground: 'hsl(var(--foreground))',
+                primary: {
+                    DEFAULT: 'hsl(var(--primary))',
+                    foreground: 'hsl(var(--primary-foreground))',
+                    1: '#edebfb',
+                    2: '#d3ccf5',
+                    3: '#b0a8ed',
+                    4: '#8c7ef4',
+                    5: '#6959dc',
+                    6: '#4834d4',
+                    7: '#3d2cb4',
+                    8: '#332597',
+                    9: '#291e79',
+                    10: '#20175f',
+                },
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))',
+                    1: '#fdeeee',
+                    2: '#fbd5d6',
+                    3: '#f8b5b5',
+                    4: '#f49293',
+                    5: '#f17172',
+                    6: '#ee5253',
+                    7: '#ca4647',
+                    8: '#a93a3b',
+                    9: '#882f2f',
+                    10: '#6b2525',
+                },
+                neutral: {
+                    1: '#ffdfdf',
+                    2: '#f5f6f6',
+                    3: '#f1f1f2',
+                    4: '#dbdcdf',
+                    5: '#c3c5c9',
+                    6: '#93979e',
+                    7: '#646973',
+                    8: '#515662',
+                    9: '#343b48',
+                    10: '#101828',
+                },
+                danger: {
+                    1: '#feeceb',
+                    2: '#fbd2cf',
+                    3: '#f9af9a',
+                    4: '#f68982',
+                    5: '#f3665c',
+                    6: '#f04438',
+                    7: '#ca3a30',
+                    8: '#aa3028',
+                    9: '#892720',
+                    10: '#6c1f19',
+                },
+                warning: {
+                    1: '#fef4e6',
+                    2: '#fde4c4',
+                    3: '#fccf95',
+                    4: '#fab964',
+                    5: '#f8a435',
+                    6: '#f79009',
+                    7: '#d27a08',
+                    8: '#af6606',
+                    9: '#8d5205',
+                    10: '#614104',
+                },
+                success: {
+                    1: '#e7f8f0',
+                    2: '#c6e9db',
+                    3: '#99e0bf',
+                    4: '#6ad2a1',
+                    5: '#3dc485',
+                    6: '#12b76a',
+                    7: '#0f9c5a',
+                    8: '#0db24b',
+                    9: '#0a683c',
+                    10: '#085230',
+                },
+                destructive: {
+                    DEFAULT: 'hsl(var(--destructive))',
+                    foreground: 'hsl(var(--destructive-foreground))',
+                },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                    foreground: 'hsl(var(--muted-foreground))',
+                },
+                accent: {
+                    DEFAULT: 'hsl(var(--accent))',
+                    foreground: 'hsl(var(--accent-foreground))',
+                },
+                popover: {
+                    DEFAULT: 'hsl(var(--popover))',
+                    foreground: 'hsl(var(--popover-foreground))',
+                },
+                card: {
+                    DEFAULT: 'hsl(var(--card))',
+                    foreground: 'hsl(var(--card-foreground))',
+                },
+            },
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
+            },
+            keyframes: {
+                'accordion-down': {
+                    from: { height: '0' },
+                    to: { height: 'var(--radix-accordion-content-height)' },
+                },
+                'accordion-up': {
+                    from: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: '0' },
+                },
+            },
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
+            },
+        },
     },
-  },
-  plugins: [],
-};
+    plugins: [require('tailwindcss-animate')],
+} satisfies Config;
+
 export default config;
