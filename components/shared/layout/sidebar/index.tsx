@@ -55,8 +55,11 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
                     />
                 </div>
                 <div className="p-2 mb-5">
-                    <Link href="/profile" className="flex items-center gap-2">
-                        <Image className="rounded-full w-14 h-14" src="/images/profile.jpg" width={50} height={50} alt="Profile" />
+                    <Link href="/profile" className={`flex items-center gap-2 ${isOpen ? 'justify-start' : 'justify-center'}`}>
+                        <div className="flex justify-center items-center">
+                            <Image className="rounded-full w-10 h-10 object-cover" src="/images/profile.jpg" width={50} height={50} alt="Profile" />
+                        </div>
+
                         {isOpen && (
                             <div className="flex flex-col gap-1">
                                 <div className="text-neutral-10 text-paragraph-s font-semibold">Peter Parker</div>

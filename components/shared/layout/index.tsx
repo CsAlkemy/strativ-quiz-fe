@@ -11,7 +11,7 @@ interface CommonLayoutProps {
 }
 
 const CommonLayout: React.FC<CommonLayoutProps> = ({ children, title }) => {
-    const appName = 'Their Goods'; // Replace with your actual app name
+    const appName = 'Their Goods';
     return (
         <>
             <Head>

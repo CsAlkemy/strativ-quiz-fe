@@ -39,19 +39,19 @@ export const NavItems: INavItem[] = [
         href: '/chats',
         color: '',
     },
-    {
-        title: 'Components',
-        icon: Component,
-        href: '#',
-        color: '',
-        isChildren: true,
-        children: [
-            {
-                title: 'Common',
-                icon: CandlestickChart,
-                color: '',
-                href: '/components',
-            },
-        ],
-    },
+    // {
+    //     title: 'Components',
+    //     icon: Component,
+    //     href: '#',
+    //     color: '',
+    //     isChildren: true,
+    //     children: [
+    //         {
+    //             title: 'Common',
+    //             icon: CandlestickChart,
+    //             color: '',
+    //             href: '/components',
+    //         },
+    //     ],
+    // },
 ];
