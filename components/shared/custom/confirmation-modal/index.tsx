@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { X } from 'lucide-react';
-
-import { CustomButton } from '@components/shared/custom-button';
 import { Dialog, DialogContent } from '@components/shared/shadcn-ui/dialog';
+import { CustomButton } from '../custom-button';
 
 type Props = {
     title: string;
