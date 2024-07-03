@@ -6,37 +6,37 @@ export const NavItems: INavItem[] = [
     {
         title: 'Home',
         icon: Home,
-        href: '/',
+        href: '/seller',
         color: '',
     },
     {
         title: 'Sales',
         icon: CircleDollarSign,
-        href: '/sales',
+        href: '/seller/sales',
         color: '',
     },
     {
         title: 'Products',
         icon: SquareDot,
-        href: '/products',
+        href: '/seller/products',
         color: '',
     },
     {
         title: 'Orders',
         icon: Box,
-        href: '/orders',
+        href: '/seller/orders',
         color: '',
     },
     {
         title: 'Coupons',
         icon: Ticket,
-        href: '/coupons',
+        href: '/seller/coupons',
         color: '',
     },
     {
         title: 'Chats',
         icon: MessagesSquare,
-        href: '/chats',
+        href: '/seller/chats',
         color: '',
     },
     // {
