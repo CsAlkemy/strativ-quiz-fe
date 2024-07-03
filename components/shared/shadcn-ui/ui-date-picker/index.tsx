@@ -109,11 +109,11 @@ export function UiDatePicker({
             placeholderText={placeholder || 'MM/DD/YYYY'}
             selected={dateValue && setYear(new Date(dateValue), selectedYear)}
             showPopperArrow={false}
-            onSelect={dateOnSelect}
-            onChange={dateOnChange}
+            onChange={dateOnChange as any}
+            onSelect={dateOnSelect as any}
             maxDate={maxDate ? new Date(maxDate) : new Date()}
             minDate={minDate ? new Date(minDate) : new Date(1900, 0, 1)}
-            onKeyDown={onKeyDown}
+            onKeyDown={onKeyDown as any}
         />
     );
 }

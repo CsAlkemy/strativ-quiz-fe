@@ -1,13 +1,11 @@
 import $fetch, { publicFetch } from '@library/apis/fetch';
 import { enums } from '@library/enums';
 import type { THttpType } from '@library/types/api';
-import CandidateApiModuleEnum = enums.CandidateApiModuleEnum;
-import EmployerApiModuleEnum = enums.EmployerApiModuleEnum;
 import AdminApiModuleEnum = enums.AdminApiModuleEnum;
 
 type Props<Request> = {
     method: THttpType;
-    module: CandidateApiModuleEnum | EmployerApiModuleEnum | AdminApiModuleEnum;
+    module: AdminApiModuleEnum;
     lastUrl?: string;
     payload?: Request;
     headers?: Record<string, string>;
