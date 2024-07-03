@@ -1,10 +1,17 @@
 import AdminGuard from '@components/shared/custom/user-guard';
 import ForgotPasswordComponent from '@components/buyer/auth/forgot-password';
+import Head from 'next/head';
+import React from 'react';
 
 export default function ForgotPasswordPage(): JSX.Element {
     return (
-        <AdminGuard authRequire={false}>
-            <ForgotPasswordComponent />
-        </AdminGuard>
+        <>
+            <Head>
+                <title>Forgot Password -Their Goods</title>
+            </Head>
+            <AdminGuard authRequire={false}>
+                <ForgotPasswordComponent />
+            </AdminGuard>
+        </>
     );
 }

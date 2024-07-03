@@ -1,10 +1,17 @@
 import AdminGuard from '@components/shared/custom/user-guard';
-import CustomEmptyData from '@components/shared/custom/custom-empty-data';
+import LoginComponent from '@components/seller/auth/login';
+import Head from 'next/head';
+import React from 'react';
 
 export default function SellerHomePage(): JSX.Element {
     return (
-        <AdminGuard authRequire={false}>
-            <CustomEmptyData title="Development in progress" />
-        </AdminGuard>
+        <>
+            <Head>
+                <title>Login-Their Goods</title>
+            </Head>
+            <AdminGuard authRequire={false}>
+                <LoginComponent />
+            </AdminGuard>
+        </>
     );
 }

@@ -1,16 +1,16 @@
 import AdminGuard from '@components/shared/custom/user-guard';
-import LoginComponent from '@components/buyer/auth/login';
+import ForgotPasswordComponent from '@components/seller/auth/forgot-password';
 import Head from 'next/head';
 import React from 'react';
 
-export default function LoginPage(): JSX.Element {
+export default function ForgotPasswordPage(): JSX.Element {
     return (
         <>
             <Head>
-                <title>Login-Their Goods</title>
+                <title>Forgot Password -Their Goods</title>
             </Head>
             <AdminGuard authRequire={false}>
-                <LoginComponent />
+                <ForgotPasswordComponent />
             </AdminGuard>
         </>
     );
