@@ -4,7 +4,7 @@ import { UseFormReturn } from 'react-hook-form';
 type OtpInputProps = {
     hookForm: UseFormReturn<any, any> & any;
     name: string;
-    label: string;
+    label?: string;
     onSubmit: () => void;
 };
 
@@ -54,7 +54,7 @@ const CustomOtpInput = ({
             key={index}
             onPaste={e => handlePaste(e, index)}
             type="text"
-            className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-primary bg-background focus:border-primary rounded-md outline-0 h-14 w-[99%] sm:w-14 border text-center"
+            className="[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none border-neutral-6 bg-background focus:border-primary-6 rounded-md outline-0 h-14 w-[99%] sm:w-14 border-2 text-xl font-bold text-neutral-8 text-center"
             maxLength={1}
             {...register(name + `.${index}`)}
             onChange={e => handleChange(e.target as any, index)}
@@ -83,9 +83,6 @@ const CustomOtpInput = ({
 
     return (
         <div className=" otp-input-container">
-            <label className="text-text-primary text-opacity-70">
-                Enter OTP Here <span className="text-red-400 ">*</span>
-            </label>
             <div className="flex items-center justify-start gap-x-2">{inputs}</div>
             <div className="text-destructive">{errors?.[name]?.root?.message || null}</div>
         </div>

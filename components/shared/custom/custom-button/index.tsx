@@ -12,7 +12,7 @@ const CustomButtonVariants = cva(
     {
         variants: {
             variant: {
-                default: 'bg-primary text-primary-foreground hover:bg-primary',
+                default: 'bg-primary-6 text-primary-foreground hover:bg-primary-7',
                 destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
                 outline: 'border border-primary bg-background hover:bg-accent hover:text-accent-foreground text-primary',
                 secondary: 'bg-secondary text-secondary-foreground',

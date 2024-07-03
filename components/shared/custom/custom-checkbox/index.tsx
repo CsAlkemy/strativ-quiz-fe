@@ -23,7 +23,7 @@ const CustomCheckbox: React.FC<TCustomCheckbox> = ({ hookForm, label, id, name, 
                         <div className="grid gap-1.5 leading-none">
                             <label
                                 htmlFor={id}
-                                className="text-sm font-light leading-none select-none text-text-primary peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                className="leading-none select-none text-neutral-8 text-paragraph-s font-regular peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                                 {label}
                             </label>
                             {!!des ? <p className="text-sm text-muted-foreground">{des}</p> : null}
