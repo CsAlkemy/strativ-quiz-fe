@@ -1,13 +1,11 @@
 import $fetch from '@library/apis/fetch';
 import { enums } from '@library/enums';
 import type { TApiPaginatedPayload, THttpType } from '@library/types/api';
-import CandidateApiModuleEnum = enums.CandidateApiModuleEnum;
-import EmployerApiModuleEnum = enums.EmployerApiModuleEnum;
 import AdminApiModuleEnum = enums.AdminApiModuleEnum;
 
 type Props = {
     method: THttpType;
-    module: CandidateApiModuleEnum | EmployerApiModuleEnum | AdminApiModuleEnum;
+    module: AdminApiModuleEnum;
     lastUrl: string;
     urlQueries: TApiPaginatedPayload;
     headers?: Record<string, string>;

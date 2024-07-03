@@ -2,9 +2,6 @@ import { useRouter } from 'next/router';
 
 import { useEffect, useState } from 'react';
 
-import { enums } from '@library/enums';
-import LanguageEnum = enums.LanguageEnum;
-
 interface PaginationProps {
     pagination: {
         page: number;
