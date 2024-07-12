@@ -10,7 +10,8 @@ import { TCustomInput, TUiCustomInput } from '@library/types/shared/components';
 import { CircleHelp, Eye, EyeOff } from 'lucide-react';
 
 const InputByType = (_props: TUiCustomInput) => {
-    const { type, ...props } = _props;
+    const { type, suffix, prefix, ...props } = _props;
+    // console.log();
     const [showPassword, setShowPassword] = React.useState(false);
     if (type === 'password') {
         return (
@@ -69,6 +70,10 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
     error,
     helpTooltip,
     admin,
+    startIcon,
+    endIcon,
+    suffix,
+    prefix,
     ...rest
 }) => {
     return (
@@ -102,6 +107,8 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
                 type={type || 'string'}
                 placeholder={placeholder || ''}
                 id={name}
+                endIcon={endIcon}
+                startIcon={startIcon}
                 {...rest}
             />
 

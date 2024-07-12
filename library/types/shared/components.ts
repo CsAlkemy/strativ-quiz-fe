@@ -1,6 +1,7 @@
 import { UseFormReturn } from 'react-hook-form';
 
 import { TBase } from '../api';
+import { LucideIcon } from 'lucide-react';
 
 export type TCustomInput = Omit<TUiCustomInput, 'value' | 'onChange'> & {
     hookForm: UseFormReturn<any, any> & any;
@@ -19,6 +20,8 @@ export type TUiCustomInput = {
     disabled?: boolean;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
+    startIcon?: LucideIcon;
+    endIcon?: LucideIcon;
     helpTooltip?: string;
     [k: string]: any;
     admin?: boolean;
