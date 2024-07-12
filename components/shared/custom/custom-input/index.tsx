@@ -10,7 +10,8 @@ import { TCustomInput, TUiCustomInput } from '@library/types/shared/components';
 import { CircleHelp, Eye, EyeOff } from 'lucide-react';
 
 const InputByType = (_props: TUiCustomInput) => {
-    const { type, ...props } = _props;
+    const { type, suffix, prefix, ...props } = _props;
+    // console.log();
     const [showPassword, setShowPassword] = React.useState(false);
     if (type === 'password') {
         return (
@@ -19,7 +20,7 @@ const InputByType = (_props: TUiCustomInput) => {
                 <span
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute block w-8 -translate-y-1/2 cursor-pointer right-4 pointer top-1/2">
-                    {showPassword ? <Eye /> : <EyeOff />}
+                    {showPassword ? <Eye className="text-neutral-6" /> : <EyeOff className="text-neutral-6" />}
                 </span>
             </div>
         );
@@ -69,15 +70,19 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
     error,
     helpTooltip,
     admin,
+    startIcon,
+    endIcon,
+    suffix,
+    prefix,
     ...rest
 }) => {
     return (
-        <div className="relative w-full">
+        <div className=" w-full">
             {!!label && (
                 <label
                     htmlFor={name}
                     className={cvaCnMerge(
-                        'absolute px-2 z-10 font-thin after:pl-1 -top-[9px] text-capitalize text-xs text-text-primary left-5 max-w-fit bg-white',
+                        ' px-2 font-regular after:pl-1 text-neutral-7  text-capitalize text-paragraph-s left-5 max-w-fit bg-white',
                         {
                             "after:content-['*']": required,
                             'after:text-destructive': required,
@@ -95,13 +100,15 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
             )}
             <InputByType
                 value={value}
-                className={cvaCnMerge('w-full focus:outline-0 focus:shadow-none')}
+                className={cvaCnMerge('w-full focus:outline-0 focus:shadow-none rounded-[8px] placeholder:text-neutral-6')}
                 name={name}
                 disabled={disabled}
                 onChange={onChange}
                 type={type || 'string'}
                 placeholder={placeholder || ''}
                 id={name}
+                endIcon={endIcon}
+                startIcon={startIcon}
                 {...rest}
             />
 

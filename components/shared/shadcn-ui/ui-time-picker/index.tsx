@@ -21,8 +21,8 @@ export function UiTimePicker({ onSelect, onChange, clearable = false, value: dat
             placeholderText={placeholder || 'h:mm aa'}
             selected={date}
             showPopperArrow={false}
-            onSelect={onSelectDate}
-            onChange={onChange}
+            onSelect={onSelectDate as any}
+            onChange={onChange as any}
         />
     );
 }
