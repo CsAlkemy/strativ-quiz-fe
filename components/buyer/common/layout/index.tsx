@@ -7,13 +7,12 @@ interface CommonLayoutProps {
 }
 
 const BuyerWrapper: React.FC<CommonLayoutProps> = ({ children, title }) => {
-    const appName = 'Their Goods';
     return (
         <>
             <Head>
-                <title>{title ? `${title} - ${appName}` : appName}</title>
+                <title>{title ? `${title} - ${process.env.NEXT_PUBLIC_APP_NAME}` : ''}</title>
             </Head>
-            <div className="flex h-screen overflow-hidden border-collapse">
+            <div className="w-11/12 mx-auto">
                     {children}
             </div>
         </>
