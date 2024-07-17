@@ -1,22 +1,24 @@
 import React from 'react';
 import Head from 'next/head';
+import Header from '@components/buyer/common/header';
+import Footer from '@components/buyer/common/footer';
 
 interface CommonLayoutProps {
     children: React.ReactNode;
     title?: string;
 }
 
-const BuyerWrapper: React.FC<CommonLayoutProps> = ({ children, title }) => {
+const BuyerLayout: React.FC<CommonLayoutProps> = ({ children, title }) => {
     return (
         <>
             <Head>
                 <title>{title ? `${title} - ${process.env.NEXT_PUBLIC_APP_NAME}` : ''}</title>
             </Head>
-            <div className="w-11/12 mx-auto">
-                    {children}
-            </div>
+            <Header />
+            <div className="">{children}</div>
+            <Footer />
         </>
     );
 };
 
-export default React.memo(BuyerWrapper);
+export default React.memo(BuyerLayout);
