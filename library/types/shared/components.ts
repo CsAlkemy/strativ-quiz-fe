@@ -28,7 +28,7 @@ export type TUiCustomInput = {
 };
 
 export type TCustomCheckbox = {
-    hookForm?: UseFormReturn<any, any> & any;
+    hookForm: UseFormReturn<any, any> & any;
     name: string;
     label: string;
     id: string;

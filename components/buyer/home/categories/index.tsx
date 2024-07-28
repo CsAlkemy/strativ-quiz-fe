@@ -1,6 +1,7 @@
 import React from 'react';
 import TitleHeaderComponent from '@components/buyer/common/title-header';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const CategoriesComponent = () => {
     const categories = [
@@ -14,21 +15,19 @@ const CategoriesComponent = () => {
         { id: 8, name: 'Caps', image: '/images/categories/caps.svg' },
     ];
     return (
-        <div className='mt-[18rem] sm:mt-32 mb-10'>
-            <TitleHeaderComponent title='Categories' destination='#' />
-            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6'>
+        <div className="mt-[18rem] sm:mt-32 mb-10">
+            <TitleHeaderComponent title="Categories" destination="#" />
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
                 {categories.map(category => (
-                    <div key={category.id} className='text-center'>
-                        <div
-                            className='h-36 w-36 rounded-full flex justify-center items-center bg-secondary-1 hover:bg-secondary-2 hover:cursor-pointer mx-auto'>
+                    <Link href={`/buyer/categories?id=${category.name}`} key={category.id} className="text-center">
+                        <div className="h-36 w-36 rounded-full flex justify-center items-center bg-secondary-1 hover:bg-secondary-2 hover:cursor-pointer mx-auto">
                             <Image src={category.image} alt={category.name} width={64} height={64} />
                         </div>
                         <div>{category.name}</div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
-
     );
 };
 

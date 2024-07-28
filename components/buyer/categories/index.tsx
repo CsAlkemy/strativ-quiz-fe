@@ -117,7 +117,7 @@ const pagination = {
     total: 10,
 };
 
-const HomePageComponent = () => {
+const CategoriesComponent = () => {
     return (
         <BuyerLayout title="Categories">
             <BuyerWrapper>
@@ -169,4 +169,4 @@ const HomePageComponent = () => {
     );
 };
 
-export default HomePageComponent;
+export default CategoriesComponent;
