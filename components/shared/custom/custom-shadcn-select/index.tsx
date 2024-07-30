@@ -58,7 +58,7 @@ export function UiCustomSelect(props: TUiCustomSelectProps) {
             <Select onValueChange={onSelect} name={name} value={(value as string) || ''} defaultValue={defaultValue}>
                 <SelectTrigger
                     className={cvaCnMerge(
-                        `focus:shadow-none bg-white h-14 pr-4  focus:ring-0 focus:ring-offset-0 focus:border transition ease-in-out duration-100 focus:border-primary focus:outline-none focus:outline-offset-0 ${className}`,
+                        `focus:shadow-none bg-white h-10 pr-4  focus:ring-0 focus:ring-offset-0 focus:border transition ease-in-out duration-100 focus:border-primary focus:outline-none focus:outline-offset-0 ${className}`,
                     )}>
                     <SelectValue placeholder={placeholder} />
                     {!value && <ChevronDown className="w-4 h-4 opacity-70" />}

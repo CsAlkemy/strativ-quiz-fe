@@ -100,7 +100,7 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
             )}
             <InputByType
                 value={value}
-                className={cvaCnMerge('w-full focus:outline-0 focus:shadow-none rounded-[8px] placeholder:text-neutral-6')}
+                className={cvaCnMerge('w-full focus:outline-0 focus:shadow-none rounded-[8px] placeholder:text-neutral-6 h-10')}
                 name={name}
                 disabled={disabled}
                 onChange={onChange}
