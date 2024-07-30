@@ -8,11 +8,18 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@components
 type Props = {
     title: ReactNode;
     content: ReactNode;
+    isOpen?: boolean;
 };
-const CustomCollapse = ({ title, content }: Props) => {
-    const [open, setOpen] = useSafeState<boolean>(false);
+
+const CustomCollapse = ({ title, content, isOpen = false }: Props) => {
+    const [open, setOpen] = useSafeState<boolean>(isOpen);
+
+    React.useEffect(() => {
+        setOpen(isOpen);
+    }, [isOpen]);
+
     return (
-        <Collapsible onOpenChange={(e: any) => setOpen(e)} className="text-sm font-normal">
+        <Collapsible onOpenChange={(e: boolean) => setOpen(e)} className="text-sm font-normal" open={open}>
             <CollapsibleTrigger className="w-full bg-gray-100 p-2">
                 <div className="flex justify-between w-full">
                     <div className="font-bold w-full text-start pr-2">{title}</div>
@@ -23,4 +30,5 @@ const CustomCollapse = ({ title, content }: Props) => {
         </Collapsible>
     );
 };
+
 export default CustomCollapse;

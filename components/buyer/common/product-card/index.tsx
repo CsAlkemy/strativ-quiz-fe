@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import product from '@components/buyer/product';
 
 interface ProductCardProps {
     title: string;
@@ -17,7 +18,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ title, price, oldPrice, image
         <div className="border rounded-lg overflow-hidden shadow-sm">
             <Image src={imageUrl} alt={title} width={300} height={200} className="w-full h-48 object-cover" />
             <div className="p-4 flex flex-col gap-1">
-                <h2 className="text-paragraph-l font-medium text-neutral-10">{title}</h2>
+                <Link href={`/buyer/product?id=${title}`} passHref>
+                    <h2 className="text-paragraph-l font-medium text-neutral-10">{title}</h2>
+                </Link>
                 <div className="flex gap-2 items-center">
                     <div className="text-paragraph-l font-semi-bold text-primary-6">${price.toFixed(2)}</div>
                     <div className="line-through text-neutral-6">${oldPrice.toFixed(2)}</div>

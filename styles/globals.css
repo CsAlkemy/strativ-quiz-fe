@@ -126,3 +126,23 @@ body {
         transform: rotate(360deg);
     }
 }
+
+.image-gallery-slide {
+    @apply rounded-[8px];
+    max-height: 35rem;
+}
+.image-gallery-slide img {
+    @apply rounded-[8px];
+    object-fit: cover;
+}
+.image-gallery-thumbnail {
+    width: 200px !important;
+}
+.image-gallery-thumbnail img {
+    @apply rounded-[4px];
+    width: 200px !important;
+    height: 130px !important;
+}
+.image-gallery-thumbnails .image-gallery-thumbnails-container {
+    text-align: start !important;
+}

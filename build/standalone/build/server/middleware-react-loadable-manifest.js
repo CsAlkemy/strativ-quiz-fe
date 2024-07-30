@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST='{"components/shared/layout/index.tsx -> ./sidebar":{"id":3902,"files":["static/chunks/902.a263c8e37b38b52d.js"]}}';
