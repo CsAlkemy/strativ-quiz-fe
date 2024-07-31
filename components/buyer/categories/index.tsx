@@ -125,8 +125,8 @@ const CategoriesComponent = () => {
             </BuyerWrapper>
             <div className="bg-primary-1 w-full my-10 py-4">
                 <BuyerWrapper>
-                    <div className="flex items-center justify-between">
-                        <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row items-center justify-between">
+                        <div className="flex flex-wrap gap-2">
                             <CustomButton variant="default" className="bg-black">
                                 All
                             </CustomButton>
@@ -135,7 +135,7 @@ const CategoriesComponent = () => {
                             <CustomButton variant="outline">Sweaters</CustomButton>
                             <CustomButton variant="outline">Turtlenecks</CustomButton>
                         </div>
-                        <div>
+                        <div className="w-full sm:w-fit mt-5 sm:mt-0">
                             <UiCustomSelect
                                 placeholder="Best Match"
                                 options={['Best Match', 'Low to High', 'High to Low']}

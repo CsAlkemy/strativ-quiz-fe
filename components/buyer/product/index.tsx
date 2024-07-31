@@ -71,7 +71,7 @@ const ProductDetailsComponent = () => {
                                     title="Washing Guidelines"
                                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                                 />
-                                <div className="flex flex-col gap-2 mb-3">
+                                <div className="space-y-2 mb-3">
                                     <div className="text-paragraph-l font-semi-bold text-neutral-10">Select Size</div>
                                     <div className="flex gap-2">
                                         <CustomButton variant="default" className="bg-black hover:bg-neutral-9" size="sm">
@@ -85,7 +85,7 @@ const ProductDetailsComponent = () => {
                                         </CustomButton>
                                     </div>
                                 </div>
-                                <Link href="/buyer/cart" className="w-full">
+                                <Link href="/buyer/cart" className="">
                                     <CustomButton size="sm" className="w-full">
                                         Add to Cart
                                     </CustomButton>
