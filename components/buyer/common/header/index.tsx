@@ -6,11 +6,11 @@ import { Sheet, SheetContent, SheetTrigger } from '@components/shared/shadcn-ui/
 
 const Header = () => {
     const navItems = [
-        { href: '#', label: 'Tops' },
-        { href: '#', label: 'Bottoms' },
-        { href: '#', label: 'Dresses' },
-        { href: '#', label: 'Outerwear' },
-        { href: '#', label: 'Accessories' },
+        { href: '/buyer/categories?id=Tops', label: 'Tops' },
+        { href: '/buyer/categories?id=Bottoms', label: 'Bottoms' },
+        { href: '/buyer/categories?id=Dress', label: 'Dresses' },
+        { href: '/buyer/categories?id=Outerwear', label: 'Outerwear' },
+        { href: '/buyer/categories?id=Accessories', label: 'Accessories' },
     ];
 
     const [isMounted, setIsMounted] = useState(false);

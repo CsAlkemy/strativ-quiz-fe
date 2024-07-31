@@ -6,6 +6,7 @@ import CustomCollapse from '@components/shared/custom/custom-collaps';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import ImageGallery from 'react-image-gallery';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const images = [
     {
@@ -84,7 +85,11 @@ const ProductDetailsComponent = () => {
                                         </CustomButton>
                                     </div>
                                 </div>
-                                <CustomButton size="sm">Add to Cart</CustomButton>
+                                <Link href="/buyer/cart" className="w-full">
+                                    <CustomButton size="sm" className="w-full">
+                                        Add to Cart
+                                    </CustomButton>
+                                </Link>
                             </div>
                             <div className=" p-7 border border-neutral-4  bg-white rounded-[8px]  flex flex-col gap-3 mt-4">
                                 <div>Sold By</div>
