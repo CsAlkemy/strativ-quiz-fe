@@ -187,10 +187,11 @@ const ShopComponent = () => {
         <BuyerLayout title="Shop name">
             <ShopHero />
             <BuyerWrapper>
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mt-20">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:mt-20">
                     <div className="col-span-1 flex-col flex gap-4 mt-16">
                         <CustomCollapse
                             title="Categories"
+                            isOpen={true}
                             content={
                                 <div>
                                     {categories.map(category => (
@@ -220,7 +221,7 @@ const ShopComponent = () => {
                         />
                     </div>
                     <div className="col-span-1 md:col-span-4">
-                        <div className="flex items-center justify-between mb-5">
+                        <div className="flex flex-wrap space-y-3 items-center justify-between mb-5">
                             <div className="w-full sm:w-1/3">
                                 <UiCustomInput
                                     onChange={() => {}}
@@ -230,7 +231,7 @@ const ShopComponent = () => {
                                     placeholder="Search"
                                 />
                             </div>
-                            <div>
+                            <div className="w-full sm:w-fit">
                                 <UiCustomSelect
                                     placeholder="Best Match"
                                     options={['Best Match', 'Low to High', 'High to Low']}

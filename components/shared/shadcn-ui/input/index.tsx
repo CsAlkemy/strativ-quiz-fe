@@ -10,16 +10,13 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(({ disabled, className, type, startIcon, endIcon, ...props }, ref) => {
-    console.log(startIcon)
-
     const StartIcon = startIcon;
     const EndIcon = endIcon;
 
     return (
-
-        <div className='w-full relative'>
+        <div className="w-full relative">
             {StartIcon && (
-                <div className="absolute left-1.5 top-1/2 transform -translate-y-1/2">
+                <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                     <StartIcon size={18} className="text-muted-foreground" />
                 </div>
             )}
@@ -28,9 +25,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ disabled, classN
                 type={type}
                 className={cvaCnMerge(
                     'flex w-full rounded-md border h-[56px] border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-md file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:border transition ease-in-out duration-100 focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50',
-                    startIcon ? "pl-7" : "",
-                    endIcon ? "pr-7" : "",
-                    className
+                    startIcon ? 'pl-8' : '',
+                    endIcon ? 'pr-7' : '',
+                    className,
                 )}
                 disabled={disabled || false}
                 ref={ref}
@@ -42,7 +39,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ disabled, classN
                 </div>
             )}
         </div>
-
     );
 });
 Input.displayName = 'Input';

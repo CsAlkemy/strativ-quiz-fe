@@ -20,7 +20,7 @@ const CustomCollapse = ({ title, content, isOpen = false }: Props) => {
 
     return (
         <Collapsible onOpenChange={(e: boolean) => setOpen(e)} className="text-sm font-normal" open={open}>
-            <CollapsibleTrigger className="w-full bg-gray-100 p-2">
+            <CollapsibleTrigger className="w-full bg-gray-100 p-2 rounded-[5px]">
                 <div className="flex justify-between w-full">
                     <div className="font-bold w-full text-start pr-2">{title}</div>
                     {open ? <ChevronUp /> : <ChevronDown />}
