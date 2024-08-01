@@ -30,7 +30,7 @@ const testimonials = [
     {
         id: 4,
         title: 'Easy Selling Process!',
-        text: "Beautiful accessories, speedy delivery. Can't wait to shop again for more stylish treasures to add to my collection of fabulous fashion finds!",
+        text: "Beautiful accessories, speedy delivery. Can't wait to order-card again for more stylish treasures to add to my collection of fabulous fashion finds!",
         author: 'Olivia Thompson',
         location: 'Kampong Glam',
         rating: 5,
@@ -56,8 +56,8 @@ const testimonials = [
 const Testimonials = () => {
     return (
         <div className="bg-neutral-3 pt-10 pb-20">
-            <div className='w-11/12 mx-auto'>
-                <TitleHeaderComponent title='Trusted by Women all around the World' />
+            <div className="w-11/12 mx-auto max-w-screen-2xl">
+                <TitleHeaderComponent title="Trusted by Women all around the World" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {testimonials.map(testimonial => (
                         <TestimonialCard
@@ -71,7 +71,6 @@ const Testimonials = () => {
                     ))}
                 </div>
             </div>
-
         </div>
     );
 };

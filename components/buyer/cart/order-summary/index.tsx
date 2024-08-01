@@ -1,6 +1,5 @@
 import React from 'react';
 import { CustomButton } from '@components/shared/custom/custom-button';
-import 'react-image-gallery/styles/css/image-gallery.css';
 import { UiCustomInput } from '@components/shared/custom/custom-input';
 
 const OrderSummaryComponent = () => {

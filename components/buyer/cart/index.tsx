@@ -1,14 +1,13 @@
 import React from 'react';
 import BuyerWrapper from '@components/buyer/common/layout/width-wrapper';
 import BuyerLayout from '@components/buyer/common/layout';
-import 'react-image-gallery/styles/css/image-gallery.css';
 import OrderSummaryComponent from '@components/buyer/cart/order-summary';
 import { products } from './data';
 import ShopWiseCart from '@components/buyer/cart/shop';
 
 const CartComponent = () => {
     return (
-        <BuyerLayout title="Categories">
+        <BuyerLayout title="My Cart">
             <div className="bg-neutral-2 w-full mb-10 mt-16  py-4">
                 <BuyerWrapper>
                     <div className="text-heading-3 font-bold text-neutral-10 mt-10">My Cart</div>

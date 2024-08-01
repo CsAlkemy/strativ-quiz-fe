@@ -184,7 +184,7 @@ const ShopComponent = () => {
         },
     });
     return (
-        <BuyerLayout title="Shop name">
+        <BuyerLayout title="Shop name here">
             <ShopHero />
             <BuyerWrapper>
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-4 sm:mt-20">
