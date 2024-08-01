@@ -2,6 +2,7 @@ import React from 'react';
 import { Product } from '../data';
 import { CustomButton } from '@components/shared/custom/custom-button';
 import Link from 'next/link';
+import { ArrowDownToLine } from 'lucide-react';
 
 interface Props {
     products: Product[];
@@ -21,7 +22,7 @@ const OrderCard = ({ products }: Props) => {
                         Expected Delivery: June 7, 2023
                     </CustomButton>
                     <CustomButton variant="outline" className="w-full sm:w-fit">
-                        Download Invoice
+                        <ArrowDownToLine size={20} className="mx-2" /> Download Invoice
                     </CustomButton>
                 </div>
             </div>

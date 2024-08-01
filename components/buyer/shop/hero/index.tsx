@@ -1,5 +1,6 @@
 import React from 'react';
 import { CustomButton } from '@components/shared/custom/custom-button';
+import { Plus } from 'lucide-react';
 
 const ShopHero = () => {
     return (
@@ -14,7 +15,10 @@ const ShopHero = () => {
                         <div className="text-heading-5 sm:text-heading-3 font-bold text-neutral-10">Sapphire Women Dresses</div>
                         <div className="text-paragraph-l font-regular text-neutral-8">Discover pre-loved treasures.</div>
                     </div>
-                    <CustomButton>Follow</CustomButton>
+                    <CustomButton>
+                        <Plus size={20} className="mx-2" />
+                        Follow
+                    </CustomButton>
                 </div>
             </div>
         </div>

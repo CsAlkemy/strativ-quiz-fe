@@ -7,6 +7,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import ImageGallery from 'react-image-gallery';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { ArrowDownToLine, ShoppingBag } from 'lucide-react';
 
 const images = [
     {
@@ -87,7 +88,7 @@ const ProductDetailsComponent = () => {
                                 </div>
                                 <Link href="/buyer/cart" className="">
                                     <CustomButton size="sm" className="w-full">
-                                        Add to Cart
+                                        <ShoppingBag size={20} className="mx-2" /> Add to Cart
                                     </CustomButton>
                                 </Link>
                             </div>
