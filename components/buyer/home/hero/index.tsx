@@ -8,7 +8,7 @@ const HeroComponent = () => {
         <div className="mt-16 relative bg-pink-400">
             <HeroSvgComponent className="min-w-max overflow-x-hidden" />
             <div className="right-0 left-0 absolute top-1/3 bg-primary-1 sm:bg-transparent pb-10 sm:pb-0">
-                <div className=" w-11/12  mx-auto space-y-5 justify-center">
+                <div className=" w-11/12  mx-auto space-y-5 justify-center max-w-screen-2xl">
                     <div className="text-heading-2 md:text-heading-1 font-bold text-neutral-10">Style Adventures Begin Here:</div>
                     <div className="text-heading-2 md:text-heading-1 font-bold text-neutral-10">
                         Shop, Sell, <span className="text-heading-2 md:text-heading-1 font-bold text-primary-6">Connect!</span>

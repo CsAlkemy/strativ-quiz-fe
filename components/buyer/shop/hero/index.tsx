@@ -5,7 +5,7 @@ const ShopHero = () => {
     return (
         <div className="mt-10">
             <img src="/images/shop-banner.png" className="w-full min-h-[200px]" alt="shop banner" />
-            <div className="flex justify-between items-center -mt-10 w-11/12 mx-auto">
+            <div className="flex justify-between items-center -mt-10 max-w-screen-2xl w-11/12 mx-auto">
                 <div className="flex flex-wrap gap-5 items-center">
                     <div className="h-36 w-36 border-2 border-neutral-5 bg-warning-2 flex justify-center items-center p-5 rounded-[8px]">
                         <img src="/images/google.png" alt="shop identity" />

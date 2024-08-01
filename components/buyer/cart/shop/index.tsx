@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-image-gallery/styles/css/image-gallery.css';
 import { Product } from '../data';
 import CartItem from '@components/buyer/cart/cart-item';
 import { UiCustomInput } from '@components/shared/custom/custom-input';
@@ -29,7 +28,7 @@ const ShopWiseCart = ({ products, shopName }: Props) => {
                     <div className="text-paragraph-m font-semi-bold text-neutral-8">Total</div>
                 </div>
                 {products.map(product => (
-                    <CartItem key={product.id} product={product} />
+                    <CartItem key={product.id} product={product} quantityAction={true} />
                 ))}
                 <div className="my-4">
                     <div className="flex justify-between items-center">

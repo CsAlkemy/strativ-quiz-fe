@@ -7,7 +7,7 @@ interface CommonLayoutProps {
 const BuyerWrapper: React.FC<CommonLayoutProps> = ({ children }) => {
     return (
         <>
-            <div className="w-11/12 mx-auto">{children}</div>
+            <div className="w-11/12 mx-auto max-w-screen-2xl">{children}</div>
         </>
     );
 };
