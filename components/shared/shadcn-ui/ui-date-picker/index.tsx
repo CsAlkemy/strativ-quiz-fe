@@ -6,6 +6,7 @@ import { format, getMonth, getYear, isValid, parse, setYear } from 'date-fns';
 import { MONTH_LIST } from '@library/constants';
 import { cvaCnMerge } from '@library/shadcn-utils';
 import { TUiDatePicker } from '@library/types/shared/components';
+import 'react-datepicker/dist/react-datepicker.css';
 
 function range(start: number, end: number, step: number) {
     const result = [];
