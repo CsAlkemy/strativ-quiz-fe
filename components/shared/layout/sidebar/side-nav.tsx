@@ -11,7 +11,7 @@ import { buttonVariants } from '@components/shared/shadcn-ui/button';
 import { useSidebar } from '@library/hooks/useSidebar';
 import { cvaCnMerge } from '@library/shadcn-utils';
 import { INavItem } from '@library/types/admin';
-import { ArrowBigDown, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { AccordionItem, AccordionTrigger } from '@components/shared/shadcn-ui/accordion';
 
 interface SideNavProps {

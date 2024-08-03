@@ -1,4 +1,4 @@
-import { Box, CandlestickChart, CircleDollarSign, Component, Home, MessagesSquare, SquareDot, Ticket } from 'lucide-react';
+import { Box, CircleDollarSign, Home, LogOutIcon, MessagesSquare, SquareDot, Ticket } from 'lucide-react';
 
 import { INavItem } from '@library/types/admin';
 
@@ -37,6 +37,12 @@ export const NavItems: INavItem[] = [
         title: 'Chats',
         icon: MessagesSquare,
         href: '/seller/chats',
+        color: '',
+    },
+    {
+        title: 'Log Out',
+        icon: LogOutIcon,
+        href: '/',
         color: '',
     },
     // {

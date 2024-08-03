@@ -11,7 +11,7 @@ interface CommonLayoutProps {
 }
 
 const CommonLayout: React.FC<CommonLayoutProps> = ({ children, title }) => {
-    const appName = 'Their Goods';
+    const appName = process.env.NEXT_PUBLIC_APP_NAME;
     return (
         <>
             <Head>
