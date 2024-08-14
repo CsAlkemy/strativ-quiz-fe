@@ -7,16 +7,22 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import ImageGallery from 'react-image-gallery';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { ArrowDownToLine, ShoppingBag } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 const images = [
     {
-        original: 'https://picsum.photos/id/1018/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+        original:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+
+        thumbnail:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        original:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+
+        thumbnail:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
         original:
@@ -25,8 +31,11 @@ const images = [
             'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
-        original: 'https://picsum.photos/id/1019/1000/600/',
-        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+        original:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+
+        thumbnail:
+            'https://images.pexels.com/photos/18717338/pexels-photo-18717338/free-photo-of-house-at-memories-aicha-luxury-camp-on-wadi-rum-desert-in-jordan.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
         original:
