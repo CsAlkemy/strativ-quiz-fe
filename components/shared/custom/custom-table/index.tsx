@@ -13,15 +13,16 @@ import {
     VisibilityState,
 } from '@tanstack/react-table';
 
-import { Button } from '@components/shared/shadcn-ui/button';
-import { Input } from '@components/shared/shadcn-ui/input';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@components/shared/shadcn-ui/table';
-import Skeleton from '@components/shared/skeleton';
+import { Input } from '../../shadcn-ui/input';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../shadcn-ui/table';
+import { Skeleton } from '../../shadcn-ui/skeleton';
+import { CustomButton } from '@components/shared/custom/custom-button';
 
 interface ReusableTableProps {
     data: any[];
     columns: ColumnDef<any>[];
-    isSearchPagination?: boolean;
+    isPagination?: boolean;
+    isSearch?: boolean;
     onSelectionChange?: (selectedUserIds: string[]) => void;
     hideRowSelectLabel?: boolean;
     className?: string;
@@ -30,7 +31,7 @@ interface ReusableTableProps {
 }
 
 const CustomTable: React.FC<ReusableTableProps> = props => {
-    const { data, tableHeader, className, columns, isSearchPagination, onSelectionChange, hideRowSelectLabel, isLoading } = props;
+    const { data, tableHeader, className, columns, isPagination, isSearch, onSelectionChange, hideRowSelectLabel, isLoading } = props;
     const [sorting, setSorting] = useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
     const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -63,8 +64,8 @@ const CustomTable: React.FC<ReusableTableProps> = props => {
     }, [table.getState().rowSelection]);
 
     return (
-        <div className={`w-full bg-white rounded-md p-4 ${className}`}>
-            {isSearchPagination && (
+        <div className={`w-full bg-white rounded-sm p-2 ${className}`}>
+            {isSearch && (
                 <div className="flex justify-end py-4">
                     <Input
                         placeholder="Type in to search"
@@ -115,18 +116,18 @@ const CustomTable: React.FC<ReusableTableProps> = props => {
                             </TableBody>
                         </Table>
                     </div>
-                    {isSearchPagination && (
+                    {isPagination && (
                         <div className="flex items-center justify-end space-x-2 py-4">
                             <div className="flex-1 text-sm text-muted-foreground my-2">
                                 {table.getFilteredSelectedRowModel().rows.length} of {table.getFilteredRowModel().rows.length} row(s) selected.
                             </div>
-                            <div className="space-x-2">
-                                <Button variant="outline" size="sm" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+                            <div className="space-x-5 mx-2">
+                                <CustomButton size="sm" variant="outline" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
                                     Previous
-                                </Button>
-                                <Button variant="outline" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+                                </CustomButton>
+                                <CustomButton size="sm" variant="outline" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
                                     Next
-                                </Button>
+                                </CustomButton>
                             </div>
                         </div>
                     )}
@@ -136,4 +137,4 @@ const CustomTable: React.FC<ReusableTableProps> = props => {
     );
 };
 
-export default CustomTable;
+export { CustomTable };
