@@ -70,7 +70,17 @@ body {
       --ring: 212.7 26.8% 83.9%;
     }
   }
-
+*::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+*::-webkit-scrollbar-track {
+    background: lightgray;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #6959DC;
+    border-radius: 20px !important;
+}
   @layer base {
     * {
       @apply border-border;
