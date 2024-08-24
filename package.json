@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cd <nested directory> && bun run build",
+    "build": "npm run build",
     "start": "next start",
     "prepare": "husky install",
     "lint": "next lint"
