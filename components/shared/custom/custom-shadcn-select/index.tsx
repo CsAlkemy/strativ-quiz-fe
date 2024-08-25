@@ -39,7 +39,7 @@ export function UiCustomSelect(props: TUiCustomSelectProps) {
                 <label
                     htmlFor={name}
                     className={cvaCnMerge(
-                        'absolute px-2 z-10 font-thin after:pl-1 -top-[9px] text-capitalize text-xs text-text-primary left-5 max-w-fit bg-white',
+                        ' px-2 z-10 after:pl-1 text-paragraph-s  text-capitalize font-regular text-neutral-8  left-5 max-w-fit bg-white',
                         {
                             "after:content-['*']": required,
                             'after:text-destructive': required,
