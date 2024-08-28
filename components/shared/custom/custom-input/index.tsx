@@ -81,7 +81,7 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
             {!!label && (
                 <label
                     htmlFor={name}
-                    className={cvaCnMerge(' px-2 font-regular after:pl-1 text-neutral-8  text-capitalize text-paragraph-m left-5 max-w-fit', {
+                    className={cvaCnMerge(' px-1 mb-1 font-regular after:pl-1 !text-neutral-8  text-capitalize text-paragraph-m left-5 max-w-fit', {
                         "after:content-['*']": required,
                         'after:text-destructive': required,
                     })}>

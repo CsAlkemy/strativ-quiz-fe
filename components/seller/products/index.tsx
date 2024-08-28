@@ -3,6 +3,7 @@ import { ArrowDownUp, BadgeDollarSign, Layers3, Package, Plus, TrendingDown, Tre
 import ProductStatisticCard from 'components/seller/products/statistics-card';
 import ProductList from '@components/seller/products/product-list';
 import { CustomButton } from '@components/shared/custom/custom-button';
+import Link from 'next/link';
 
 const statisticsData = [
     {
@@ -46,11 +47,11 @@ const statisticsData = [
 const SellerProductsComponent = () => {
     return (
         <div className="bg-neutral-2 w-full">
-            <div className="flex justify-end mb-10 -mt-10">
+            <Link href="/seller/products/manage" className="flex justify-end mb-10 -mt-10">
                 <CustomButton>
                     <Plus size={20} className="text-white" /> Add New Product
                 </CustomButton>
-            </div>
+            </Link>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 {statisticsData.map((stat, index) => (
                     <ProductStatisticCard
