@@ -54,7 +54,7 @@ const images = [
 const ProductDetailsComponent = () => {
     const { query } = useRouter();
     return (
-        <BuyerLayout title="Categories">
+        <BuyerLayout title="Product Details">
             <div className="bg-neutral-2 w-full mb-10 mt-16  py-4">
                 <BuyerWrapper>
                     <div className="grid grid-cols-1 md:grid-cols-6 gap-y-4 md:gap-x-4 py-10">

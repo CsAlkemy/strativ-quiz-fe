@@ -81,13 +81,10 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
             {!!label && (
                 <label
                     htmlFor={name}
-                    className={cvaCnMerge(
-                        ' px-2 font-regular after:pl-1 text-neutral-7  text-capitalize text-paragraph-s left-5 max-w-fit bg-white',
-                        {
-                            "after:content-['*']": required,
-                            'after:text-destructive': required,
-                        },
-                    )}>
+                    className={cvaCnMerge(' px-1 mb-1 font-regular after:pl-1 !text-neutral-8  text-capitalize text-paragraph-m left-5 max-w-fit', {
+                        "after:content-['*']": required,
+                        'after:text-destructive': required,
+                    })}>
                     {label}
                     {helpTooltip && (
                         <span className="ml-2 text-sm font-medium !text-text-primary">

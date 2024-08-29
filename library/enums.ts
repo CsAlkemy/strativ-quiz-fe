@@ -11,6 +11,16 @@ export namespace enums {
         TEMP_ACCESS_TOKEN = 'temp-access-token',
         REFRESH_TOKEN = 'x-refresh-token',
     }
+    export enum CategoriesEnum {
+        DRESS = 'Dress',
+        BAGS = 'Bags',
+        COATS = 'Coats',
+        ACCESSORIES = 'Accessories',
+        TOPS = 'Tops',
+        BOTTOMS = 'Bottoms',
+        SHOES = 'Shoes',
+        CAPS = 'Caps',
+    }
 
     export enum ApiModuleEnum {
         AUTH = 'auth',
@@ -23,3 +33,5 @@ export namespace enums {
         ADMIN = 'admin',
     }
 }
+
+export class CategoriesEnum {}

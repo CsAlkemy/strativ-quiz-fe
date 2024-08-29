@@ -5,6 +5,8 @@ import { CustomButton } from '@components/shared/custom/custom-button';
 import CouponList from 'components/seller/sales/sales-list';
 import { EarningsTrendBarChart } from 'components/seller/sales/chart/earnings-trend-bar-chart';
 import { EarningsTrendLineChart } from '@components/seller/sales/chart/earnings-trend-line-chart';
+import WithdrawModal from '@components/seller/sales/withdraw-modal';
+import { useSafeState } from 'ahooks';
 
 const statisticsData = [
     {
@@ -30,6 +32,7 @@ const statisticsData = [
 ];
 
 const SellerSalesComponent = () => {
+    const [open, setOpen] = useSafeState<boolean>(false);
     return (
         <div className="bg-neutral-2 w-full">
             <div className="flex flex-col sm:flex-row justify-end mb-10 sm:-mt-10  gap-3">
@@ -37,7 +40,7 @@ const SellerSalesComponent = () => {
                     <Download size={20} className="mr-2" />
                     Download Earnings Report
                 </CustomButton>
-                <CustomButton>
+                <CustomButton onClick={() => setOpen(true)}>
                     Withdraw
                     <ArrowUpRight size={20} className="text-white" />
                 </CustomButton>
@@ -58,6 +61,7 @@ const SellerSalesComponent = () => {
             <div className="mt-5">
                 <CouponList />
             </div>
+            <WithdrawModal open={open} setOpen={setOpen} />
         </div>
     );
 };

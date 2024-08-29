@@ -4,6 +4,8 @@ import CouponStatisticCard from 'components/seller/coupons/statistics-card';
 import { CustomButton } from '@components/shared/custom/custom-button';
 import CouponList from '@components/seller/coupons/coupon-list';
 import { CouponUsageBarChart } from '@components/seller/coupons/chart/coupon-usage-bar-chart';
+import CouponModal from '@components/seller/coupons/coupon-modal';
+import { useSafeState } from 'ahooks';
 
 const statisticsData = [
     {
@@ -36,10 +38,11 @@ const statisticsData = [
 ];
 
 const SellerCouponsComponent = () => {
+    const [open, setOpen] = useSafeState<boolean>(false);
     return (
         <div className="bg-neutral-2 w-full">
             <div className="flex justify-end mb-10 -mt-10">
-                <CustomButton>
+                <CustomButton onClick={() => setOpen(true)}>
                     <Plus size={20} className="text-white" /> Add New Coupon
                 </CustomButton>
             </div>
@@ -65,6 +68,7 @@ const SellerCouponsComponent = () => {
             <div className="mt-5">
                 <CouponList />
             </div>
+            <CouponModal setOpen={setOpen} open={open} />
         </div>
     );
 };
