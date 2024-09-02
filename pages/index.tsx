@@ -1,10 +1,5 @@
-import AdminGuard from '@components/shared/custom/user-guard';
-import HomePageComponent from '@components/buyer/home';
+import HomePageComponent from '@components/home';
 
 export default function HomePage(): JSX.Element {
-    return (
-        <AdminGuard authRequire={false}>
-            <HomePageComponent />
-        </AdminGuard>
-    );
+    return <HomePageComponent />;
 }

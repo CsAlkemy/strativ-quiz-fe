@@ -6,7 +6,7 @@ import { Input } from '@components/shared/shadcn-ui/input';
 import { Textarea } from '@components/shared/shadcn-ui/textarea';
 import { funcResolveObjectDot } from '@library/functions';
 import { cvaCnMerge } from '@library/shadcn-utils';
-import { TCustomInput, TUiCustomInput } from '@library/types/shared/components';
+import { TCustomInput, TUiCustomInput } from '@library/types/common';
 import { CircleHelp, Eye, EyeOff } from 'lucide-react';
 
 const InputByType = (_props: TUiCustomInput) => {
