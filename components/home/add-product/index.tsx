@@ -6,6 +6,12 @@ import CustomInput from '@components/shared/custom/custom-input';
 import React from 'react';
 import CustomFileUploader from '@components/shared/custom/custom-file-uploader';
 import { ProductSchema, TProductSchema } from '@library/schemas/product';
+import { addDoc, collection } from '@firebase/firestore';
+import { db, storage } from '../../../firebaseConfig';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import customToast from '@components/shared/custom/custom-toast';
+import { v4 as uuidv4 } from 'uuid';
+import { useSafeState } from 'ahooks';
 
 type Props = {
     open: boolean;
@@ -13,6 +19,7 @@ type Props = {
 };
 
 export function AddProduct({ setOpen, open }: Props) {
+    const [loading, setLoading] = useSafeState(false);
     const hookForm = useForm<TProductSchema>({
         resolver: zodResolver(ProductSchema),
         defaultValues: {
@@ -25,9 +32,53 @@ export function AddProduct({ setOpen, open }: Props) {
             productImages: [],
         },
     });
-    const onSubmit = () => {
-        console.log('hello world');
+    const onSubmit = async (data: TProductSchema) => {
+        setLoading(true);
+
+        try {
+            const files: File[] = data.productImages as unknown as File[];
+            const imageUrls = await Promise.all(
+                files.map(async (file: File) => {
+                    const storageRef = ref(storage, `products/${uuidv4()}-${file.name}`);
+                    const metadata = {
+                        contentType: 'image/jpeg',
+                    };
+
+                    try {
+                        // const base64String = await funcFileToBase64(file);
+                        // const blob = funcBase64StringToBlob(base64String);
+                        const snapshot = await uploadBytes(storageRef, file, metadata);
+                        const downloadURL = await getDownloadURL(snapshot.ref);
+                        return downloadURL;
+                    } catch (uploadError) {
+                        console.error('Upload error:', uploadError);
+                        throw uploadError;
+                    }
+                }),
+            );
+            const productData = {
+                ...data,
+                productImages: imageUrls,
+                createdAt: new Date(),
+            };
+            await addDoc(collection(db, 'products'), productData);
+            customToast({
+                title: 'Product added successfully',
+                description: 'Success',
+                variant: 'success',
+            });
+            setOpen(false);
+        } catch (error) {
+            customToast({
+                title: `Error adding product: ${error}`,
+                description: 'Failed',
+                variant: 'destructive',
+            });
+        } finally {
+            setLoading(false);
+        }
     };
+
     return (
         <Dialog open={open}>
             <DialogContent className="sm:max-w-[600px]">
@@ -50,7 +101,9 @@ export function AddProduct({ setOpen, open }: Props) {
                         <CustomButton type="button" variant="destructive" onClick={() => setOpen(false)}>
                             Close
                         </CustomButton>
-                        <CustomButton type="submit">Save changes</CustomButton>
+                        <CustomButton isLoading={loading} type="submit">
+                            Save changes
+                        </CustomButton>
                     </div>
                 </form>
             </DialogContent>

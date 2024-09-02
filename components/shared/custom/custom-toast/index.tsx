@@ -1,37 +1,30 @@
-import toast, { ToastOptions } from 'react-hot-toast';
+import { toast } from 'sonner';
+import 'tailwindcss/tailwind.css';
 
-import CustomToastContent from '@components/shared/custom/custom-toast/toast-content';
+interface ToastOptions {
+    title: string;
+    description: string;
+    variant?: 'default' | 'destructive' | 'success' | 'warning';
+}
 
-import { cvaCnMerge } from '@library/shadcn-utils';
-import { CircleX } from 'lucide-react';
+const customToast = ({ title, description, variant = 'default' }: ToastOptions) => {
+    const formattedMessage = `${title}: ${description}`;
 
-type Props = {
-    type?: 'success' | 'error';
-    title?: string;
-    description?: string;
-    duration?: number;
-    id?: string;
-    position?: 'top-left' | 'top-center' | 'top-right' | 'bottom-left' | 'bottom-center' | 'bottom-right';
-};
-export default function customToast({ title, description, id = '1', position = 'bottom-right', duration = 4000, type = 'success' }: Props) {
-    const toastOptions: ToastOptions = {
-        duration,
-        position,
-        id,
-        className: cvaCnMerge(`!bg-green-600 !text-white`, {
-            '!bg-destructive': type === 'error',
-        }),
+    const variantClasses = {
+        default: 'bg-gray-800 text-white',
+        destructive: 'bg-red-500 text-white',
+        success: 'bg-green-500 text-white',
+        warning: 'bg-yellow-500 text-black',
     };
 
-    return toast[type](
-        t => (
-            <div className="relative ml-3">
-                <span onClick={() => toast.dismiss(t.id)} className="absolute w-4 h-4 cursor-pointer -top-1 -right-3">
-                    {<CircleX />}
-                </span>
-                <CustomToastContent title={title} description={description} />
-            </div>
-        ),
-        toastOptions,
-    );
-}
+    const toastClass = variantClasses[variant] || variantClasses.default;
+
+    toast.custom(t => (
+        <div className={`p-4 rounded-md shadow-md w-full sm:min-w-[350px] ${toastClass}`}>
+            <strong>{title}</strong>
+            <p>{description}</p>
+        </div>
+    ));
+};
+
+export default customToast;

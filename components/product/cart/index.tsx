@@ -1,8 +1,11 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@components/shared/shadcn-ui/dialog';
-import React from 'react';
+import React, { useState } from 'react';
 import { Minus, Plus, X } from 'lucide-react';
 import { useProductStore } from '@library/store/cart.store';
 import { CustomButton } from '@components/shared/custom/custom-button';
+import { addDoc, collection } from '@firebase/firestore';
+import { db } from '../../../firebaseConfig';
+import customToast from '@components/shared/custom/custom-toast';
 
 type Props = {
     open: boolean;
@@ -10,11 +13,44 @@ type Props = {
 };
 
 export function CartModal({ setOpen, open }: Props) {
-    const price = 71.35;
-    const { productName, productSubtitle, quantity, selectedSize, selectedColor, setQuantity, setSelectedSize, setSelectedColor } = useProductStore();
+    const { productName, productSubtitle, quantity, selectedSize, selectedColor, price, setQuantity, setSelectedSize, setSelectedColor } =
+        useProductStore();
+    const [loading, setLoading] = useState<boolean>(false);
 
     const incrementQuantity = () => setQuantity(quantity + 1);
     const decrementQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : quantity);
+
+    const handleBuyNow = async () => {
+        const cartItem = {
+            productName,
+            productSubtitle,
+            selectedColor,
+            selectedSize,
+            quantity,
+            totalAmount: (quantity * price * 1.25).toFixed(2),
+        };
+
+        setLoading(true); // Set loading to true when request starts
+
+        try {
+            await addDoc(collection(db, 'cart'), cartItem);
+            customToast({
+                title: 'Success',
+                description: 'Successfully added',
+                variant: 'success',
+            });
+            setOpen(false);
+        } catch (error) {
+            console.error('Error adding document: ', error);
+            customToast({
+                title: 'Failed',
+                description: 'Failed to add item to cart. Please try again',
+                variant: 'destructive',
+            });
+        } finally {
+            setLoading(false); // Set loading to false when request completes
+        }
+    };
 
     return (
         <Dialog open={open}>
@@ -31,7 +67,8 @@ export function CartModal({ setOpen, open }: Props) {
                             <div className="text-[16px] font-semi-bold text-[#B9BBBF]">{productSubtitle}</div>
                             <div className="flex gap-4 items-center">
                                 <div
-                                    className={`bg-[${selectedColor}] h-10 w-10 rounded-full border-white border-2 flex justify-center items-center `}></div>
+                                    style={{ backgroundColor: selectedColor }}
+                                    className={`h-10 w-10 rounded-full border-white border-2 flex justify-center items-center `}></div>
                                 <div className="bg-gray-100 px-3 rounded-md w-fit h-fit">{selectedSize}</div>
                             </div>
                             <div className="flex gap-3 mt-5 items-center">
@@ -45,7 +82,9 @@ export function CartModal({ setOpen, open }: Props) {
                                     </CustomButton>
                                 </div>
                             </div>
-                            <CustomButton className="rounded-full bg-primary-Main">${(quantity * price * 1.25).toFixed(2)} | Buy Now</CustomButton>
+                            <CustomButton onClick={handleBuyNow} className="rounded-full bg-primary-Main" isLoading={loading}>
+                                {`${(quantity * price * 1.25).toFixed(2)} | Buy Now`}
+                            </CustomButton>
                         </div>
                     </div>
                 </div>

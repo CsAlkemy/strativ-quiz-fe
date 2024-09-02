@@ -7,8 +7,21 @@ import { ColorOption, SizeOption } from '@library/types/product';
 import { useProductStore } from '@library/store/cart.store';
 
 const ProductDescription = () => {
-    const { productName, productSubtitle, quantity, selectedSize, selectedColor, setQuantity, setSelectedSize, setSelectedColor } = useProductStore();
-    const price = 71.35;
+    const {
+        productName,
+        productSubtitle,
+        quantity,
+        selectedSize,
+        price,
+        setPrice,
+        selectedColor,
+        setQuantity,
+        setSelectedSize,
+        setSelectedColor,
+        setProductName,
+        setProductSubtitle,
+    } = useProductStore();
+    const productPrice = price;
     const sizeOptions: SizeOption[] = [
         { label: 'Small', id: 'small' },
         { label: 'Medium', id: 'medium' },
@@ -36,7 +49,7 @@ const ProductDescription = () => {
             </div>
             <div className="border-b border-neutral-4 pb-10 mt-10">
                 <div className="flex gap-3">
-                    <div className="text-[34px] font-bold text-[#3A4980]">{price}</div>
+                    <div className="text-[34px] font-bold text-[#3A4980]">$ {price}</div>
                     <div className="space-y-2">
                         <div className="flex gap-3">
                             <div className="flex gap-2 p-3 rounded-full w-fit bg-[#FBF3EA] text-[#D48D3B]">
@@ -102,7 +115,7 @@ const ProductDescription = () => {
                         <Plus size={12} />
                     </CustomButton>
                 </div>
-                <CustomButton className="rounded-full bg-primary-Main">${(quantity * price * 1.25).toFixed(2)} | Add to Cart</CustomButton>
+                <CustomButton className="rounded-full bg-primary-Main">${(quantity * productPrice * 1.25).toFixed(2)} | Add to Cart</CustomButton>
             </div>
         </div>
     );

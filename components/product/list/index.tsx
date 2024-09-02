@@ -1,17 +1,18 @@
-import React from 'react';
 import ProductCard from '@components/shared/common/product-card';
-import { Plus } from 'lucide-react';
-import { CustomButton } from '@components/shared/custom/custom-button';
 
 interface Product {
-    id: number;
-    title: string;
+    id: string;
+    moreDetails: string;
+    createdAt: {
+        seconds: number;
+        nanoseconds: number;
+    };
+    productImages: string[];
+    description: string;
+    productDetails: string;
+    productName: string;
     price: number;
-    oldPrice: number;
-    imageUrl: string;
-    postedDate: string;
-    storeName: string;
-    location: string;
+    productSubtitle: string;
 }
 
 interface Props {
@@ -21,17 +22,17 @@ interface Props {
 const ProductList: React.FC<Props> = ({ products }) => {
     return (
         <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {products.map(product => (
                     <ProductCard
                         key={product.id}
-                        title={product.title}
+                        id={product.id}
+                        title={product.productName}
                         price={product.price}
-                        oldPrice={product.oldPrice}
-                        imageUrl={product.imageUrl}
-                        postedDate={product.postedDate}
-                        storeName={product.storeName}
-                        location={product.location}
+                        imageUrl={product.productImages[0]}
+                        postedDate={new Date(product.createdAt.seconds * 1000).toISOString()}
+                        storeName={product.productSubtitle}
+                        location=""
                     />
                 ))}
             </div>

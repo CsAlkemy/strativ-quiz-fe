@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BuyerWrapper from '@components/shared/common/layout/width-wrapper';
 import BuyerLayout from '@components/shared/common/layout';
 import ProductList from '@components/product/list';
@@ -6,6 +6,8 @@ import { CustomButton } from '@components/shared/custom/custom-button';
 import { Plus } from 'lucide-react';
 import { AddProduct } from '@components/home/add-product';
 import { useSafeState } from 'ahooks';
+import { collection, getDocs } from '@firebase/firestore';
+import { db } from '../../firebaseConfig';
 
 const products = [
     {
@@ -62,6 +64,32 @@ const products = [
 
 const HomePageComponent = () => {
     const [open, setOpen] = useSafeState<boolean>(false);
+
+    const [products, setProducts] = useSafeState<any[]>([]);
+    const [loading, setLoading] = useSafeState(true);
+    const [error, setError] = useSafeState<string | null>(null);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const productsCollection = collection(db, 'products');
+                const productsSnapshot = await getDocs(productsCollection);
+                const productsList = productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                setProducts(productsList);
+            } catch (error) {
+                setError('Error fetching products: ' + (error as Error).message);
+                console.error('Error fetching products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
+    if (loading) return <div>Loading...</div>;
+    console.log(products);
+
     return (
         <BuyerLayout title="Home">
             <BuyerWrapper>
