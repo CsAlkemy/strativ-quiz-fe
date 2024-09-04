@@ -1,6 +1,11 @@
-## Their Goods Frontend
+## Strativ Quiz
 
 ### Development
+```bash
+bun install
+or
+pnpm install
+```
 
 Run the development server:
 

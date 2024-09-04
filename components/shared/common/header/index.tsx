@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MenuIcon, ShoppingBag } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@components/shared/shadcn-ui/sheet';
-import { CartModal } from '@components/product/cart';
 
 const Header = () => {
     const navItems = [
@@ -28,7 +27,7 @@ const Header = () => {
         <header className="fixed top-0 left-0 right-0 p-3 py-4 bg-white z-50 border-b border-[#EDEDED]">
             <div className="w-11/12 max-w-screen-2xl mx-auto flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-4">
-                    <img src="/images/branding/companyLogo.png" alt="Logo" className="w-auto h-6" />
+                    <img src="/images/branding/strativ.png" alt="Logo" className="w-auto h-6" />
                 </Link>
                 <nav className="hidden md:flex space-x-6"></nav>
                 <div className="hidden md:flex items-center space-x-4 hover:cursor-pointer " onClick={() => setOpen(true)}>
@@ -60,7 +59,6 @@ const Header = () => {
                     </Sheet>
                 </div>
             </div>
-            <CartModal setOpen={setOpen} open={open} />
         </header>
     );
 };

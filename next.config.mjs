@@ -10,8 +10,5 @@ const nextConfig = {
   generateEtags: true,
   pageExtensions: ['tsx', 'ts'],
   transpilePackages: ['ahooks'],
-  images: {
-    domains: ['firebasestorage.googleapis.com'],
-  },
 };
 export default nextConfig;
