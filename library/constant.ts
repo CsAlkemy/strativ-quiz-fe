@@ -1,5 +1,5 @@
 import { INavItem } from './types/common';
-import { CircleHelp, TextQuote } from 'lucide-react';
+import { CircleArrowLeftIcon, CircleHelp, TextQuote } from 'lucide-react';
 
 export const PUBLIC_ROUTES = ['/'];
 
@@ -14,6 +14,12 @@ export const NavItems: INavItem[] = [
         title: 'Response',
         icon: TextQuote,
         href: '/admin/response',
+        color: '',
+    },
+    {
+        title: 'Logout',
+        icon: CircleArrowLeftIcon,
+        href: '#',
         color: '',
     },
 ];
