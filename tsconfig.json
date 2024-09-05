@@ -22,6 +22,7 @@
     ],
     "paths": {
       "@components/*": ["components/*"],
+      "@data/*": ["data/*"],
       "@library/*": ["library/*"],
       "@store/*": ["store/*"],
       "@styles/*": ["styles/*"],

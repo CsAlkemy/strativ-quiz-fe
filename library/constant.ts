@@ -1,1 +1,1 @@
-export const PUBLIC_ROUTES = ['/auth'];
+export const PUBLIC_ROUTES = ['/'];

@@ -52,6 +52,7 @@ module.exports = {
                             ['^[a-z]'],
                             // Packages starting with `@` with multi class
                             ['^@components'],
+                            ['^@data'],
                             ['^@library'],
                             ['^@store'],
                             ['^@styles'],

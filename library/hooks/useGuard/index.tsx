@@ -5,23 +5,48 @@ import { PUBLIC_ROUTES } from '@library/constant';
 
 export const useLoginCheck = () => {
     const { pathname } = useRouter();
-    const accessToken = typeof window !== 'undefined' ? localStorage?.getItem('userData') : null;
+    const router = useRouter();
+    const userData = typeof window !== 'undefined' ? localStorage?.getItem('userInfo') : null;
+    const user = userData ? JSON.parse(userData) : null;
     useIsomorphicLayoutEffect(() => {
-        if (!accessToken && !PUBLIC_ROUTES.includes(pathname)) {
+        if (!user && !PUBLIC_ROUTES.includes(pathname)) {
             customToast({
                 title: 'You are not logged in!',
                 description: 'Login to access',
                 variant: 'destructive',
             });
-            window.location.href = '/auth/login';
+            router.replace('/');
         }
-        if (!!accessToken && PUBLIC_ROUTES.includes(pathname)) {
-            customToast({
-                title: 'Welcome back!',
-                description: 'You are already logged in!',
-                variant: 'default',
-            });
-            window.location.href = 'user';
+
+        if (user) {
+            const { role } = user;
+            if (PUBLIC_ROUTES.includes(pathname)) {
+                customToast({
+                    title: 'Welcome back!',
+                    description: 'You are already logged in!',
+                    variant: 'default',
+                });
+                if (role === 'admin') {
+                    router.replace('/admin');
+                } else if (role === 'user') {
+                    router.replace('/quiz');
+                }
+            }
+            if (role === 'admin' && pathname.startsWith('/quiz')) {
+                customToast({
+                    title: 'Access Denied',
+                    description: 'Admins cannot access user pages.',
+                    variant: 'destructive',
+                });
+                router.replace('/admin');
+            } else if (role === 'user' && pathname.startsWith('/admin')) {
+                customToast({
+                    title: 'Access Denied',
+                    description: 'Users cannot access admin pages.',
+                    variant: 'destructive',
+                });
+                router.replace('/quiz');
+            }
         }
-    }, [accessToken, pathname]);
+    }, [user, pathname]);
 };

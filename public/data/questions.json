@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "question": "What is the primary purpose of Next.js?",
+    "options": [
+      "To create static websites only",
+      "To handle full-stack development",
+      "To build server-side rendered applications",
+      "To build mobile applications"
+    ],
+    "correctAnswer": "To build server-side rendered applications",
+    "answers": []
+  },
+  {
+    "id": "2",
+    "question": "Which command is used to create a new Next.js project?",
+    "options": [
+      "npx create-next-app",
+      "npx create-react-app",
+      "npm install next",
+      "next build"
+    ],
+    "correctAnswer": "npx create-next-app",
+    "answers": []
+  },
+  {
+    "id": "3",
+    "question": "Which of the following is a built-in API provided by Next.js?",
+    "options": [
+      "getStaticProps",
+      "useEffect",
+      "componentDidMount",
+      "useMemo"
+    ],
+    "correctAnswer": "getStaticProps",
+    "answers": []
+  },
+  {
+    "id": "4",
+    "question": "How does Next.js handle routing?",
+    "options": [
+      "Through a centralized routing configuration",
+      "Through the use of the 'pages' directory",
+      "Through react-router",
+      "By manually defining routes"
+    ],
+    "correctAnswer": "Through the use of the 'pages' directory",
+    "answers": []
+  },
+  {
+    "id": "5",
+    "question": "What method is used in Next.js to handle dynamic routing?",
+    "options": [
+      "With the use of dynamic route files like [id].tsx",
+      "By using a switch statement",
+      "With a routes configuration file",
+      "By using the useRouter hook exclusively"
+    ],
+    "correctAnswer": "With the use of dynamic route files like [id].tsx",
+    "answers": []
+  },
+  {
+    "id": "6",
+    "question": "What command is used to build a Next.js app for production?",
+    "options": [
+      "npm run build",
+      "next build",
+      "npm run dev",
+      "next start"
+    ],
+    "correctAnswer": "next build",
+    "answers": []
+  }
+  ]

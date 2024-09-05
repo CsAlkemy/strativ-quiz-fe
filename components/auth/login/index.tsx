@@ -6,9 +6,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import CustomInput from '@components/shared/custom/custom-input';
 import { CustomButton } from '@components/shared/custom/custom-button';
 import { LoginSchema, TLoginSchema } from '@library/schemas/auth';
+import users from '@public/data/users.json';
+import customToast from '@components/shared/custom/custom-toast';
+import { useSafeState } from 'ahooks';
 
 const LoginComponent = () => {
     const router = useRouter();
+    const [loading, setLoading] = useSafeState<boolean>(false)
     const hookForm = useForm<TLoginSchema>({
         resolver: zodResolver(LoginSchema),
         defaultValues: {
@@ -18,8 +22,22 @@ const LoginComponent = () => {
     });
 
     const onSubmit = (data: TLoginSchema) => {
-        console.log('Data', data);
-        router.push('/admin');
+        setLoading(true);
+        const user = users.find(
+            (user) => user.email === data.email && user.password === data.password
+        );
+        if (user) {
+            localStorage.setItem('userInfo', JSON.stringify(user));
+            customToast({title:'Login Success !', variant:"success", description:''});
+            if (user.role === 'admin') {
+                router.replace('/admin');
+            } else {
+                router.replace('/quiz');
+            }
+        } else {
+            customToast({title:'Invalid email or password', variant:"destructive", description:'Please try again'});
+        }
+        setLoading(false);
     };
 
     return (

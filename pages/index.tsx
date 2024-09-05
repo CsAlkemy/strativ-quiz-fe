@@ -9,7 +9,7 @@ export default function SellerHomePage(): JSX.Element {
             <Head>
                 <title>Login-StrativQuiz</title>
             </Head>
-            <AuthGuard authRequired={false} title="Login">
+            <AuthGuard authRequired={true} title="Login">
                 <LoginComponent />
             </AuthGuard>
         </>
