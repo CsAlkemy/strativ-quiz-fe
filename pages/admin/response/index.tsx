@@ -1,16 +1,16 @@
 import React from 'react';
 import AuthGuard from '@components/shared/custom/user-guard';
 import Head from 'next/head';
-import QuizComponent from '@components/quiz';
+import AdminManageQuiz from '@components/admin/manage-quiz';
 
-export default function QuizPage() {
+export default function AdminPanelPage(): JSX.Element {
     return (
         <>
             <Head>
-                <title>Quiz-StrativQuiz</title>
+                <title>Manage Quiz-StrativQuiz</title>
             </Head>
             <AuthGuard authRequired={true} title="">
-                <QuizComponent />
+                <AdminManageQuiz />
             </AuthGuard>
         </>
     );

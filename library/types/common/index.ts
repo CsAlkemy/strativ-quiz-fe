@@ -24,3 +24,11 @@ export type TUiCustomInput = {
     [k: string]: any;
     admin?: boolean;
 };
+export interface INavItem {
+    title: string;
+    href: string;
+    icon: LucideIcon;
+    color?: string;
+    isChildren?: boolean;
+    children?: INavItem[];
+}

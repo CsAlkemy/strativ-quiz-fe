@@ -64,7 +64,7 @@ const QuizComponent = () => {
     }
 
     return (
-        <div>
+        <div className='w-11/12 mx-auto max-w-screen-2xl'>
             <h1>Quiz</h1>
             {quizData.map((question) => (
                 <div key={question.id} className="mb-6">
