@@ -27,25 +27,25 @@ export const useLoginCheck = () => {
                     variant: 'default',
                 });
                 if (role === 'admin') {
-                    router.replace('/admin');
+                    router.replace('/admin/questions');
                 } else if (role === 'user') {
-                    router.replace('/quiz');
+                    router.replace('/user');
                 }
             }
-            if (role === 'admin' && pathname.startsWith('/quiz')) {
+            if (role === 'admin' && pathname.startsWith('/user')) {
                 customToast({
                     title: 'Access Denied',
                     description: 'Admins cannot access user pages.',
                     variant: 'destructive',
                 });
-                router.replace('/admin');
+                router.replace('/admin/questions');
             } else if (role === 'user' && pathname.startsWith('/admin')) {
                 customToast({
                     title: 'Access Denied',
                     description: 'Users cannot access admin pages.',
                     variant: 'destructive',
                 });
-                router.replace('/quiz');
+                router.replace('/user');
             }
         }
     }, [user, pathname]);

@@ -111,8 +111,8 @@ export const UiCustomInput: React.FC<TUiCustomInput> = ({
 
             {!!helperText ? (
                 <div
-                    className={cvaCnMerge('text-[12px] mt-1 select-none leading-none', {
-                        'text-destructive': error,
+                    className={cvaCnMerge('text-[12px] text-red-500 mt-1 select-none leading-none', {
+                        'text-red-500': error,
                     })}>
                     {' '}
                     {!admin ? helperText : helperText || ''}

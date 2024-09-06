@@ -12,7 +12,7 @@ type Props = {
 const ConfirmationModal = ({ title, open, setOpen, yesButtonFunction }: Props) => {
     return (
         <Dialog open={open}>
-            <DialogContent className="sm:max-w-screen-sm max-h-[90vh] overflow-y-auto">
+            <DialogContent className="sm:max-w-[500px] max-h-[90vh] overflow-y-auto">
                 <div>
                     <div
                         className="flex justify-between text-xl not-italic font-bold leading-[139.8%] tracking-[-0.6px]"
@@ -22,7 +22,7 @@ const ConfirmationModal = ({ title, open, setOpen, yesButtonFunction }: Props) =
                         {title}
                         <X className="hover:cursor-pointer" />
                     </div>
-                    <div className="flex items-center justify-end gap-3">
+                    <div className="flex items-center justify-end gap-3 mt-10">
                         <CustomButton
                             onClick={() => {
                                 setOpen(false);

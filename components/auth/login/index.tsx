@@ -12,7 +12,7 @@ import { useSafeState } from 'ahooks';
 
 const LoginComponent = () => {
     const router = useRouter();
-    const [loading, setLoading] = useSafeState<boolean>(false)
+    const [loading, setLoading] = useSafeState<boolean>(false);
     const hookForm = useForm<TLoginSchema>({
         resolver: zodResolver(LoginSchema),
         defaultValues: {
@@ -21,23 +21,31 @@ const LoginComponent = () => {
         },
     });
 
+    const { setValue } = hookForm;
+
     const onSubmit = (data: TLoginSchema) => {
         setLoading(true);
-        const user = users.find(
-            (user) => user.email === data.email && user.password === data.password
-        );
+        const user = users.find(user => user.email === data.email && user.password === data.password);
         if (user) {
             localStorage.setItem('userInfo', JSON.stringify(user));
-            customToast({title:'Login Success !', variant:"success", description:''});
+            customToast({ title: 'Login Success !', variant: 'success', description: '' });
             if (user.role === 'admin') {
-                router.replace('/admin');
+                router.replace('/admin/questions');
             } else {
-                router.replace('/quiz');
+                router.replace('/user');
             }
         } else {
-            customToast({title:'Invalid email or password', variant:"destructive", description:'Please try again'});
+            customToast({ title: 'Invalid email or password', variant: 'destructive', description: 'Please try again' });
         }
         setLoading(false);
+    };
+
+    const fillCredentials = (role: 'admin' | 'user') => {
+        const user = users.find(u => u.role === role);
+        if (user) {
+            setValue('email', user.email);
+            setValue('password', user.password);
+        }
     };
 
     return (
@@ -52,7 +60,26 @@ const LoginComponent = () => {
                     <div className="space-y-4">
                         <CustomInput hookForm={hookForm} required name="email" placeholder="Enter Email" />
                         <CustomInput hookForm={hookForm} required name="password" type="password" placeholder="Password" />
-                        <CustomButton size="lg" isLoading={false} variant="default" className="w-full bg-primary-6" type="submit">
+                        <div className="">
+                            <div className="text-xs text-neutral-7 mb-2">Or, Demo Login</div>
+                            <div className="grid grid-cols-2 gap-3">
+                                <CustomButton
+                                    variant="secondary"
+                                    className="hover:bg-primary hover:text-white"
+                                    size="sm"
+                                    onClick={() => fillCredentials('admin')}>
+                                    Admin
+                                </CustomButton>
+                                <CustomButton
+                                    variant="secondary"
+                                    className="hover:bg-primary hover:text-white"
+                                    size="sm"
+                                    onClick={() => fillCredentials('user')}>
+                                    User
+                                </CustomButton>
+                            </div>
+                        </div>
+                        <CustomButton size="lg" isLoading={loading} variant="default" className="w-full bg-primary-6" type="submit">
                             Sign in
                         </CustomButton>
                     </div>

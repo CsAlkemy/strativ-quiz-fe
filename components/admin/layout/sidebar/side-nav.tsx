@@ -1,18 +1,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import React from 'react';
 import { useDeepCompareEffect } from 'ahooks';
-
 import { Accordion, AccordionContent } from '@radix-ui/react-accordion';
-
 import { buttonVariants } from '@components/shared/shadcn-ui/button';
-
 import { useSidebar } from '@library/hooks/useSidebar';
 import { cvaCnMerge } from '@library/shadcn-utils';
 import { ChevronDown } from 'lucide-react';
 import { AccordionItem, AccordionTrigger } from '@components/shared/shadcn-ui/accordion';
 import { INavItem } from '@library/types/common';
+import { useRouter } from 'next/router';
 
 interface SideNavProps {
     items: INavItem[];
@@ -22,6 +19,7 @@ interface SideNavProps {
 
 export function SideNav({ items, setOpen, className }: SideNavProps) {
     const path = usePathname();
+    const router = useRouter();
     const { isOpen } = useSidebar();
     const [openItem, setOpenItem] = React.useState('');
     const [lastOpenItem, setLastOpenItem] = React.useState('');
@@ -43,6 +41,32 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
     return (
         <nav className="space-y-3 admin-sidebar-nav">
             {items.map(item => {
+                if (item.title === 'Logout') {
+                    return (
+                        <button
+                            key={item.title}
+                            onClick={() => {
+                                localStorage.removeItem('userInfo');
+                                router.replace('/');
+                            }}
+                            className={cvaCnMerge(
+                                buttonVariants({ variant: 'ghost' }),
+                                'group pl-2 pr-2 nav-item relative flex h-10 mx-3 justify-start',
+                                !isOpen && 'mx-5',
+                            )}>
+                            <item.icon className={cvaCnMerge('h-5 w-5 text-neutral-7', item.color)} />
+                            <span
+                                className={cvaCnMerge(
+                                    'absolute left-10 text-paragraph-m text-neutral-7 duration-200',
+                                    !isOpen && className,
+                                    !isOpen && 'hidden',
+                                )}>
+                                {item.title}
+                            </span>
+                        </button>
+                    );
+                }
+
                 return item.isChildren ? (
                     <Accordion type="single" collapsible className="space-y-2" key={item.title} value={openItem} onValueChange={dropdownClick}>
                         <AccordionItem value={item.title} className="border-none ">
@@ -105,12 +129,12 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
                         )}>
                         <item.icon
                             className={cvaCnMerge('h-5 w-5 text-neutral-7', item.color, {
-                                'font-bold text-primary-6': path === item.href,
+                                'font-bold text-primary': path === item.href,
                             })}
                         />
                         <span
-                            className={cvaCnMerge('absolute left-5 sm:left-10 text-paragraph-m text-neutral-7 duration-200', !isOpen && className, {
-                                'text-primary-6': path === item.href,
+                            className={cvaCnMerge('absolute left-10 text-paragraph-m text-neutral-7 duration-200', !isOpen && className, {
+                                'text-primary': path === item.href,
                             })}>
                             {item.title}
                         </span>
